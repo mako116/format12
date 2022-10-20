@@ -1,53 +1,111 @@
-var content = document.getElementById("content")
-var button = document.getElementById("show-more")
+// var content = document.getElementById("content")
+// var button = document.getElementById("show-more")
 
 
-button.onclick = function() {
-    if (content.className == "open") {
-        content.className = "";
-        button.innerHTML = "Show more";
-    } else {
-        content.className = "open";
-        button.innerHTML = "show less";
+// button.onclick = function() {
+//     if (content.className == "open") {
+//         content.className = "";
+//         button.innerHTML = "Show more";
+//     } else {
+//         content.className = "open";
+//         button.innerHTML = "show less";
+//     }
+// }
+
+// let opeBtn = document.getElementById('linked')
+// let modalContainer = document.getElementById('modal-container')
+// let closebtn = document.getElementById('close-btn')
+
+
+
+// opeBtn.addEventListener('click', function() {
+//     modalContainer.style.display = 'block'
+// })
+
+// closebtn.addEventListener('click', function() {
+//     modalContainer.style.display = 'none'
+// })
+// window.addEventListener('click', function(e) {
+//     if (e.target === modalContainer) {
+//         modalContainer.style.display = 'none'
+//     }
+// })
+const form = document.getElementById('my-form')
+const nameInput = document.querySelector('input[name="name"]')
+const lastInput = document.querySelector('input[name="lastname"]')
+const userInput = document.querySelector('input[name="username"]')
+const gendInput = document.querySelector('input[name="gender"]')
+const headInput = document.querySelector('input[name="headline"]')
+const messInput = document.querySelector('input[name="messaging"]')
+
+
+const validateInputs = () => {
+    nameInput.classList.remove("invalid")
+    nameInput.nextElementSibling.classList.add("hidden")
+        // space 
+    lastInput.classList.remove("invaild")
+    lastInput.nextElementSibling.classList.add("hidden")
+        // space
+    userInput.classList.remove("invalid")
+    userInput.nextElementSibling.classList.add("hidden")
+        // space
+        // gendInput.classList.remove("invalid")
+        // gendInput.nextElementSibling.classList.add("hidden")
+        //space
+    headInput.classList.remove("invalid")
+    headInput.nextElementSibling.classList.add("hidden")
+        // space
+        // messInput.classList.remove("invalid")
+        // messInput.nextElementSibling.classList.add("hidden")
+        // space
+    if (!nameInput.value) {
+        nameInput.classList.add("invalid")
+        nameInput.nextElementSibling.classList.remove("hidden")
+
+    }
+    if (!lastInput.value) {
+        lastInput.classList.add("invalid")
+        lastInput.nextElementSibling.classList.remove("hidden")
+    }
+    if (!userInput.value) {
+        userInput.classList.add("invalid")
+        userInput.nextElementSibling.classList.remove("hidden")
+    }
+    // if (!gendInput.value) {
+    //     gendInput.classList.add("invalid")
+    //     gendInput.nextElementSibling.classList.remove("hidden")
+    // }
+    if (!headInput.value) {
+        headInput.classList.add("invalid")
+        headInput.nextElementSibling.classList.remove("hidden")
+    }
+    if (!messInput.value) {
+        messInput.classList.add("invalid")
+        messInput.nextElementSibling.classList.remove("hidden")
     }
 }
 
-let opeBtn = document.getElementById('linked')
-let modalContainer = document.getElementById('modal-container')
-let closebtn = document.getElementById('close-btn')
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    validateInputs()
 
-
-
-opeBtn.addEventListener('click', function() {
-    modalContainer.style.display = 'block'
 })
+nameInput.addEventListener("input", () => {
+    validateInputs()
 
-closebtn.addEventListener('click', function() {
-    modalContainer.style.display = 'none'
 })
-window.addEventListener('click', function(e) {
-    if (e.target === modalContainer) {
-        modalContainer.style.display = 'none'
-    }
+lastInput.addEventListener("input", () => {
+    validateInputs()
 })
-
-
-const myform = document.querySelector('#my-form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
-const msg = document.querySelector('.msg');
-// const userlist = document.querySelector('#users')
-
-myform.addEventListener('submit', onsubmit);
-
-function onsubmit(e) {
-    e.preventDefault();
-
-    if (nameInput.value === '' || emailInput.value === '') {
-        msg.classList.add('error');
-        msg.innerHTML = 'please enter all fields';
-
-        setTimeout(() => msg.remove(), 3000);
-    }
-
-}
+userInput.addEventListener("input", () => {
+        validateInputs()
+    })
+    // gendInput.addEventListener("input", () => {
+    //     validateInputs()
+    // })
+headInput.addEventListener("input", () => {
+    validateInputs()
+})
+messInput.addEventListener("input", () => {
+    validateInputs()
+})
